@@ -53,27 +53,30 @@ def analyze_strategies(initial_cash, start_date_test, end_date_test, long_window
 
     # Plot the results
     st.subheader(f'{symbol} - Strategy Comparison')
-    plt.figure(figsize=(14, 7))
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(14, 7))
     ax.plot(data_test['Close'], label='Close Price')
     ax.plot(data_test['Short_MA'], label=f'Short MA ({short_window} days)')
     ax.plot(data_test['Long_MA'], label=f'Long MA ({long_window} days)')
     ax.plot(data_test[data_test['Position_MA'] == 1.0].index, data_test['Short_MA'][data_test['Position_MA'] == 1.0], '^', markersize=10, color='g', lw=0, label='Buy Signal MA')
     ax.plot(data_test[data_test['Position_MA'] == -1.0].index, data_test['Short_MA'][data_test['Position_MA'] == -1.0], 'v', markersize=10, color='r', lw=0, label='Sell Signal MA')
     ax.legend()
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
     st.pyplot(fig)
 
     # Plot portfolio values
     st.subheader(f'{symbol} - Portfolio Values Over Time')
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(14, 7))
     ax.plot(data_test.index, data_test['Portfolio_MA'], label='Portfolio Value MA', color='blue')
     ax.legend()
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
     st.pyplot(fig)
 
     return final_value_MA
 
 # Streamlit app
-st.title("Daily Monitor - Moving Average Crossover Strategy")
+st.title("Daily Monitor - Moving Average Crossover Strategy - ")
 
 # Input fields
 today = datetime.today().strftime('%Y-%m-%d')
@@ -91,3 +94,7 @@ if st.button("Run Analysis"):
     final_value = analyze_strategies(initial_cash, start_date_test, end_date_test, long_window, short_window, symbol)
     st.write(f"Final Portfolio Value: {final_value}")
 
+
+# Author and Link
+st.markdown("### Author: Faramarz Jabbarvaziri")
+st.markdown("[Embarking on My AlgoTrading Journey](https://www.linkedin.com/pulse/embarking-my-algotrading-journey-faramarz-jabbarvaziri-9ltpc/?trackingId=RRdkLYdVTrKmOYOOVUV6Bg%3D%3D)")
