@@ -32,12 +32,12 @@ def analyze_strategies(initial_cash, start_date_test, end_date_test, long_window
 
     for i in range(len(data_test)):
         if data_test['Position_MA'].iloc[i] == 1.0:  # Buy signal
-            action = 'buy all $'+str(round(cash_ma)) + ' or keep shares if already bought'
+            action = 'buy all or keep shares if already bought'
             if cash_ma > 0:  # Ensure we only buy if we have cash
                 position_ma = cash_ma / data_test['Close'].iloc[i]
                 cash_ma = 0
         elif data_test['Position_MA'].iloc[i] == -1.0:  # Sell signal
-            action = 'sell all '+str(position_ma)+' shares or hold on if already sold'
+            action = 'sell all shares or hold on if already sold'
             if position_ma > 0:  # Ensure we only sell if we have a position
                 cash_ma = position_ma * data_test['Close'].iloc[i]
                 position_ma = 0
