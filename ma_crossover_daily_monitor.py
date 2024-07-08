@@ -96,5 +96,5 @@ if st.button("Run Analysis"):
 
 
 # Author and Link
-st.markdown("# Author: Faramarz Jabbarvaziri")
+st.markdown(" Author: Faramarz Jabbarvaziri")
 st.markdown("[Embarking on My AlgoTrading Journey](https://www.linkedin.com/pulse/embarking-my-algotrading-journey-faramarz-jabbarvaziri-9ltpc/?trackingId=RRdkLYdVTrKmOYOOVUV6Bg%3D%3D)")
