@@ -53,6 +53,7 @@ def analyze_strategies(initial_cash, start_date_test, end_date_test, long_window
 
     # Plot the results
     st.subheader(f'{symbol} - Strategy Comparison')
+    plt.figure(figsize=(14, 7))
     fig, ax = plt.subplots()
     ax.plot(data_test['Close'], label='Close Price')
     ax.plot(data_test['Short_MA'], label=f'Short MA ({short_window} days)')
