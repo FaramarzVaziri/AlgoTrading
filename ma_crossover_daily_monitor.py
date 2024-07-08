@@ -52,7 +52,7 @@ def analyze_strategies(initial_cash, start_date_test, end_date_test, long_window
     st.write(f"Final Portfolio Value for {symbol}: {final_value_MA:.2f}")
 
     # Plot the results
-    st.subheader(f'{symbol} - Strategy Comparison')
+    st.subheader(f'{symbol} - MA Crossover Buy/Sell Strategy')
     fig, ax = plt.subplots(figsize=(14, 7))
     ax.plot(data_test['Close'], label='Close Price')
     ax.plot(data_test['Short_MA'], label=f'Short MA ({short_window} days)')
@@ -65,7 +65,7 @@ def analyze_strategies(initial_cash, start_date_test, end_date_test, long_window
     st.pyplot(fig)
 
     # Plot portfolio values
-    st.subheader(f'{symbol} - Portfolio Values Over Time')
+    st.subheader(f'{symbol} - Portfolio Value')
     fig, ax = plt.subplots(figsize=(14, 7))
     ax.plot(data_test.index, data_test['Portfolio_MA'], label='Portfolio Value MA', color='blue')
     ax.legend()
@@ -76,7 +76,7 @@ def analyze_strategies(initial_cash, start_date_test, end_date_test, long_window
     return final_value_MA
 
 # Streamlit app
-st.title("Daily Monitor - Moving Average Crossover Strategy - ")
+st.title("Daily Monitor - MA Crossover")
 
 # Input fields
 today = datetime.today().strftime('%Y-%m-%d')
@@ -96,5 +96,5 @@ if st.button("Run Analysis"):
 
 
 # Author and Link
-st.markdown("### Author: Faramarz Jabbarvaziri")
+st.markdown("# Author: Faramarz Jabbarvaziri")
 st.markdown("[Embarking on My AlgoTrading Journey](https://www.linkedin.com/pulse/embarking-my-algotrading-journey-faramarz-jabbarvaziri-9ltpc/?trackingId=RRdkLYdVTrKmOYOOVUV6Bg%3D%3D)")
