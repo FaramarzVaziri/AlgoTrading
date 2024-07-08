@@ -53,7 +53,7 @@ def analyze_strategies(initial_cash, start_date_test, end_date_test, long_window
 
     # Plot the results
     st.subheader(f'{symbol} - MA Crossover Buy/Sell Strategy')
-    fig, ax = plt.subplots(figsize=(14, 7))
+    fig, ax = plt.subplots(figsize=(7, 4))
     ax.plot(data_test['Close'], label='Close Price')
     ax.plot(data_test['Short_MA'], label=f'Short MA ({short_window} days)')
     ax.plot(data_test['Long_MA'], label=f'Long MA ({long_window} days)')
@@ -66,7 +66,7 @@ def analyze_strategies(initial_cash, start_date_test, end_date_test, long_window
 
     # Plot portfolio values
     st.subheader(f'{symbol} - Portfolio Value')
-    fig, ax = plt.subplots(figsize=(14, 7))
+    fig, ax = plt.subplots(figsize=(7, 4))
     ax.plot(data_test.index, data_test['Portfolio_MA'], label='Portfolio Value MA', color='blue')
     ax.legend()
     plt.xticks(rotation=45, ha='right')
